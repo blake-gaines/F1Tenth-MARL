@@ -1,0 +1,40 @@
+<?xml version='1.0'?>
+
+<launch>
+
+
+  <!-- load VESC odometry parameters -->
+  <arg         name           = 'vesc_config'
+               default        = '$(find move_base)/config/vesc.config'/>
+  <rosparam    file           = '$(arg vesc_config)'
+               command        = 'load'/>
+
+
+
+  <!-- launch keyboard node -->
+  <node        name           = 'keyboard'
+               pkg            = 'race'
+               type           = 'mykey.py'/>
+
+
+  <!-- Optionally launch in GDB, for debugging -->
+  <arg name="debug" default="false" />
+  <arg if="$(arg debug)" name="launch_prefix" value="xterm -e gdb --args" />
+  <arg unless="$(arg debug)" name="launch_prefix" value="" />
+
+  <!-- VESC driver parameters -->
+  <arg name="port" default="/dev/sensors/vesc" />
+
+  <!-- VESC driver node -->
+  <node pkg="vesc_driver" type="vesc_driver_node" name="$(arg node_name)"
+        output="screen" launch-prefix="$(arg launch_prefix)" >
+    <param name="port" value="$(arg port)" />
+  </node>
+
+  <!-- launch VESC odometry calculator -->
+  <node        name           = 'vesc_to_odom'
+               pkg            = 'vesc_ackermann'
+               type           = 'vesc_to_odom_node'/>
+  <remap from="/odom" to="vesc/odom"/>
+
+</launch>

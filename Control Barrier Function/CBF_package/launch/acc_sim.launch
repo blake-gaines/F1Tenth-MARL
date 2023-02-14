@@ -1,0 +1,21 @@
+<launch>
+	<arg name = "acc_param_file" default = "acc_param.yaml" />
+	<arg name = "acc_param_dump" default = "acc_param_dump.yaml" />
+
+	<rosparam command = "load" file="$(find acc_package)/launch/$(arg acc_param_file)" />
+
+	<rosparam command = "dump" file="$(find acc_package)/launch/$(arg acc_param_dump)" />
+
+
+	<node	name = "vicon_pub"
+			pkg = "acc_package"
+			type = "vicon_publisher.py"
+			output = "screen"
+		/>
+
+	<node	name = "acc_controller"
+			pkg = "acc_package"
+			type = "acc_control.py"
+			output = "screen"
+		/>
+</launch>

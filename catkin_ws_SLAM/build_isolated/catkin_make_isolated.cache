@@ -1,0 +1,2 @@
+cartographer:cartographer_ros/cartographer_ros:cartographer_ros/cartographer_ros_msgs:cartographer_ros/cartographer_rviz:f110_description
+-G Ninja -DCATKIN_DEVEL_PREFIX=/home/jiangwei2/catkin_ws_SLAM/devel_isolated -DCMAKE_INSTALL_PREFIX=/home/jiangwei2/catkin_ws_SLAM/install_isolated

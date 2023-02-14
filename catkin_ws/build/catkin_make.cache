@@ -1,0 +1,2 @@
+ackermann_msgs:beginner_tutorials:move_base:race:ros_dt_lane_follower:vesc/vesc:vesc/vesc_ackermann:vesc/vesc_driver:vesc/vesc_msgs
+-DCATKIN_DEVEL_PREFIX=/home/jiangwei2/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/jiangwei2/catkin_ws/install -G Unix Makefiles

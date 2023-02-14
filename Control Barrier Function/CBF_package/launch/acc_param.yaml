@@ -1,0 +1,25 @@
+# system constraints: default value
+
+/acc/vd: 0.8       # Desired velocity of ego vehicle (m/s)
+/acc/v: 0.0        # Initial velocity of ego vehicle (m/s)
+/acc/v0: 10.0       # Front vehicle velocity (m/s)
+/acc/z: 100.0       # Initial Distance between front vehicle and ego vehicle (m)
+/acc/dt: 0.01       # Value of time step (s)
+
+/acc/m: 1650.0      # mass of ego vehicle (kg)
+/acc/ca: 2        # max acceleration ca*g
+/acc/cd: 2          # max deacceleration -cd*g
+/acc/g: 9.81        # gravitational acceleration
+
+/acc/fsilon: 5.0    # coeff to Exponential CLF
+/acc/gamma: 1.0     # Coeff to exponential CBF
+/acc/x0: 0.5        # Stopping distance from front vehicle
+    
+/acc/f0: 0.1        # Coeff for aerodynamic drag
+/acc/f1: 5.0
+/acc/f2: 0.25
+
+/acc/A: 10.0        # Front vehicle velocity amplitude
+/acc/f: 0.1           # Front vehicle velocity frequency
+
+/acc/profile: "sinusoidal"
